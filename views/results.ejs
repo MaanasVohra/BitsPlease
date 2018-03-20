@@ -1,0 +1,212 @@
+<% include partials/header %>
+    <link href="/css/profileUserStyle.css" rel="stylesheet" type="text/css">
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+             * element that contains the map. */
+
+        #map {
+            height: 500px;
+        }
+
+        /* Optional: Makes the sample page fill the window. */
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .controls {
+            background-color: #fff;
+            border-radius: 2px;
+            border: 1px solid transparent;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            box-sizing: border-box;
+            font-family: Roboto;
+            font-size: 15px;
+            font-weight: 300;
+            height: 29px;
+            margin-left: 17px;
+            margin-top: 10px;
+            outline: none;
+            padding: 0 11px 0 13px;
+            text-overflow: ellipsis;
+            width: 400px;
+        }
+
+        .controls:focus {
+            border-color: #4d90fe;
+        }
+
+        .title {
+            font-weight: bold;
+        }
+
+        #infowindow-content {
+            display: none;
+        }
+
+        #map {
+            margin-top: 20px;
+        }
+
+        #map #infowindow-content {
+            display: inline;
+        }
+
+        .btn {
+            margin-top: 20px;
+        }
+
+        .location-content {
+            margin-top: 20px;
+        }
+
+        #remove-styling:link, #remove-styling:visited {
+            background-color: #f44336;
+            color: white;
+            padding: 14px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+
+        #remove-styling:hover, #remove-styling:active {
+            background-color: red;
+        }
+    </style>
+    </head>
+
+    <body>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <img src="/images/johnSnow.jpg" alt="john snow tour guide" class="img-thumbnail">
+            <h2 class="info">John Snow</h2>
+            <ul class="info">
+                <li>Full Name : John Snow</li>
+                <li>Email : </li>
+                <li>City : </li>
+                <li>State : </li>
+                <li>Country : </li>
+            </ul>
+        </div>
+
+        <div id="main">
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+            <div class="container">
+                <div id="map"></div>
+                <div class="jumbotron location-content">
+                    <h2>Location Name:
+                        <%= parsedDataInformation.result.name %>
+                    </h2>
+                    <h2>Areas around here:
+                        <%= parsedDataInformation.result.vicinity %>
+                    </h2>
+                    <h2>Rating:
+                        <%= parsedDataInformation.result.rating%>
+                    </h2>
+                </div>
+                <a id="remove-styling" href="/profileUser">Go Back</a>
+            </div>
+        </div>
+        <!-- <input id="pac-input" class="controls" type="text" placeholder="Enter a location"> -->
+        <div id="infowindow-content">
+            <span id="place-name" class="title"></span>
+            <br> Place ID
+            <span id="place-id"></span>
+            <br>
+            <span id="place-address"></span>
+        </div>
+
+
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHYzDyOd6xmWhksZjVJ2svVbBoc31V-Vk&callback=initMap">
+        </script>
+        <script>
+            // map initialisation
+            function initMap() {
+                var objSentFromSrv = <%- JSON.stringify(parsedDataInformation) %>;
+
+                var uluru = objSentFromSrv.result.geometry.location;
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 4,
+                    center: uluru
+                });
+                var infoWindow = new google.maps.InfoWindow;
+
+                // making markers for each position
+                console.log(objSentFromSrv);
+
+                // information which is to be shown
+                // var name = document.createElement('strong');
+                // name.textContent = ele.name;
+
+                // // address content
+                // var address = ele.address;
+                // var addressText = document.createElement('text');
+                // addressText.textContent = address;
+
+                // // description content
+                // var desc = ele.desc;
+                // var descText = document.createElement('text');
+                // descText.textContent = desc;
+
+                // // total guides
+                // var totalGuides = ele.total_guides;
+                // totalGuides = totalGuides.toString();
+
+                // // deciding color for the map 
+                // if (totalGuides == 0) {
+                //     colorFlag = 1;
+                // } else {
+                //     colorFlag = 0;
+                // }
+
+                // var colors = ['yellow', 'black'];
+
+                // // content for the info window
+                // var infowincontent = document.createElement('div');
+                // infowincontent.appendChild(name);
+                // infowincontent.appendChild(document.createElement('br'));
+                // infowincontent.appendChild(addressText);
+                // infowincontent.appendChild(document.createElement('br'));
+                // infowincontent.appendChild(descText);
+
+                // make marker
+                var marker = new google.maps.Marker({
+                    position: uluru,
+                    map: map,
+                    // label: { text: totalGuides, color: colors[colorFlag] }
+                });
+
+                // add listener
+                marker.addListener('click', function () {
+                    infoWindow.setContent(infowincontent);
+                    infoWindow.open(map, marker);
+                });
+
+            }
+        </script>
+
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+        <!-- Bootstrap JS -->
+        <script src="/js/bootstrap.min.js"></script>
+        <!-- Sliding script -->
+        <script>
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+                document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+            }
+
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+                document.body.style.backgroundColor = "white";
+            }
+        </script>
+    </body>
+
+    </html>

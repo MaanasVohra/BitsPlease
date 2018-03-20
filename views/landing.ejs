@@ -1,0 +1,151 @@
+<% include partials/header %>
+<link href="/css/landingStyle.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<div class="container">
+        <!-- Startup Navbar -->
+	<nav class="navbar navbar-default ">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#isko-collapse-karo" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/maps">Travel Tau</a>
+                </div>
+    
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="isko-collapse-karo">
+                    <!-- <ul class="nav navbar-nav">
+                        <li><a href="#">About</a></li>
+                    </ul> -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- <li><a href="#">John Snow<i class="fa fa-user"></i></a></li> -->
+                        <li><a href="#">About<i class="fa fa-user-plus"></i></a></li>
+                        <li><a href="#">Contact<i class="fa fa-user-plus"></i></a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    
+        <!-- The main heading -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="heading-content">
+                        <h1>Travel Tau</h1>
+                        <h3>Padharo Mhare Desh!</h3>
+                        <hr>
+                        <button type="button" class="btn btn-default btn-lg  btn btn-xl"><i class="fa fa-scissors" aria-hidden="true" id="GetStart " onclick="scrollToAnchor('findMe')"></i> <a href="#findMe" onkeypress="scrollToAnchor('findMe')"> Get Started! </a></button>
+
+                    </div>
+                </div>
+            </div>	
+        </div>
+</div>
+
+<div class="row" style="margin-top: 700px" id="findMe" name="findMe"></div>
+<div class="container-fluid">
+    <div class="col-lg-3" style="margin-left: 5% ">
+        <img src="/images/sunset.jpg" class="img-thumbnail">
+    </div>
+    <div class="col-lg-3" style="margin-left: 5%">
+        <img src="/images/sunset.jpg" class="img-thumbnail">
+    </div>
+    <div class="col-lg-3" style="margin-left: 5%" >
+        <img src="/images/sunset.jpg" class="img-thumbnail">
+    </div>
+</div>
+<div class="row" style="margin-top: 3%"></div>
+<div class="container-fluid">
+    <div class="col-lg-3" style="margin-left: 5% ">
+        <h4>
+            Description of place : 
+        </h4>
+        <ul>
+            <li>
+                Know About a Destination and places around it.
+            </li>
+            <li>
+                Connect with the tourist snd know about culture.
+            </li>
+            <li>
+                Find people with your interest and go on trip!!!
+            </li>
+        </ul>
+    </div>
+    <div class="col-lg-3" style="margin-left: 5% ">
+        <h4>
+            Description of place : 
+        </h4>
+        <ul>
+            <li>
+                Know About a Destination and places around it.
+            </li>
+            <li>
+                Connect with the tourist snd know about culture.
+            </li>
+            <li>
+                Find people with your interest and go on trip!!!
+            </li>
+        </ul>
+    </div>
+    <div class="col-lg-3" style="margin-left: 5% ">
+        <h4>
+            Description of place : 
+        </h4>
+        <ul>
+            <li>
+                Know About a Destination and places around it.
+            </li>
+            <li>
+                Connect with the tourist snd know about culture.
+            </li>
+            <li>
+                Find people with your interest and go on trip!!!
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="row" style="margin-top: 8%"></div>
+<div class="container">
+    <div class="col-lg-5"></div>
+    <button class="btn btn-basic btn-default btn-lg"><a href="#logInAs"> <span class="glyphicon glyphicon-collapse-down"></span> Are You Ready </a></button>
+</div>
+
+<div class="row" style="margin-top: 10%"></div>
+<div class="container" id="logInAs">
+    <div class="text-center">
+         
+    </div>
+</div>
+<div class="row" style="margin-top: 10%"></div>
+<div class="container">
+    
+    <button class="btn btn-default btn-basic btn-lg" style="margin-left: 10%"><a href="/signuploginuser">Login as Tourist
+    </a></button>
+    
+    <button class="btn btn-default btn-basic btn-lg" style="margin-left: 50%"><a href="/signuploginguide">Login as TouristGuide</a></button>
+</div>
+
+<div class= "chat">
+    <div class="popup" id = "fixed-botttom" onclick="myFunction()"> <img src="/images/ch.png" alt="Smiley face" height="50" width="70">
+      <!-- <span class="popuptext" id="myPopup">A Simple Popup!</span> <i class="far fa-comment-alt"></i>  -->
+      <div  style="align:right" class="popuptext" id="myPopup">
+                <iframe width="30%" height="100%" frameborder="0" src="https://landbot.io/u/H-32491-0166A77YK6F8OBFS/index.html"></iframe>
+        </div>
+    </div>
+</div>
+
+<script>
+// When the user clicks on div, open the popup
+function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+}
+</script>
+<% include partials/footer %>

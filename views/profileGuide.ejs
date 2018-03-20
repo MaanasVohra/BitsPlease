@@ -1,0 +1,103 @@
+<% include partials/header %>
+    <link href="/css/profileUserStyle.css" rel="stylesheet" type="text/css">
+    </head>
+
+    <body>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <img src="/images/johnSnow.jpg" alt="john snow tour guide" class="img-thumbnail">
+            <h2 class="info">John Snow</h2>
+            <ul class="info">
+                <li>Full Name : John Snow</li>
+                <li>Email : </li>
+                <li>City : </li>
+                <li>State : </li>
+                <li>Country : </li>
+            </ul>
+        </div>
+        
+        <div id="main">
+        	
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+            <div class="row"></div>
+            <div class="col-lg-2"></div>
+            <div class="col-lg-6">
+            <div class="container">
+                <h1>My Descripton</h1>
+                <p>
+                	Hello there!!!!
+                </p>
+            </div>
+            <div class="container">
+        	<h4>The Places for which iam available</h4>
+        	<ul>
+        		<li>
+        			Jaipur
+        		</li>
+        		<li>
+        			AAAA
+        		</li>
+        		<li>
+        			BBBB
+        		</li>
+        	</ul>
+        	</div>
+        	<div class="container">
+        		<h4>My Status</h4>
+        		<ul>
+        		<li>
+        			Available
+        		</li>
+        		</ul>
+        	</div>
+        	<div class="container">
+        		<h4>
+        			My Average Rating
+        		</h4>
+        		<ul>
+        			<li>
+        				Highest Rating:
+        			</li>
+        			<li>
+        				Lowest Rating:
+        			</li>
+        		</ul>
+        	</div>
+        	<div class="container">
+        		<h4>
+        			Reviews on me:
+        		</h4>
+        		<ul>
+        			<li>
+        				Excellent Job!!!
+        			</li>
+        		</ul>
+        	</div>
+        	<div class="container">
+        		<a href="timelines" class="btn btn-basic btn-lg">My Timeline</a>
+        	</div> 
+        	</div>
+        </div>
+        
+        
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+        <!-- Bootstrap JS -->
+        <script src="/js/bootstrap.min.js"></script>
+        <!-- Sliding script -->
+        <script>
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+                document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+            }
+
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+                document.body.style.backgroundColor = "white";
+            }
+        </script>
+    </body>
+
+    </html>
